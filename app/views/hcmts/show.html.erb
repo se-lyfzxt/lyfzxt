@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hotel:</strong>
+  <%= @hcmt.hotel_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @hcmt.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @hcmt.content %>
+</p>
+
+<%= link_to 'Edit', edit_hcmt_path(@hcmt) %> |
+<%= link_to 'Back', hcmts_path %>

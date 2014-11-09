@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attracname: MyString
+  city_id: 1
+  image: MyString
+
+two:
+  attracname: MyString
+  city_id: 1
+  image: MyString

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Blog:</strong>
+  <%= @bcmt.blog_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bcmt.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @bcmt.content %>
+</p>
+
+<%= link_to 'Edit', edit_bcmt_path(@bcmt) %> |
+<%= link_to 'Back', bcmts_path %>

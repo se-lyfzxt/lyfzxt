@@ -1,0 +1,31 @@
+<h1>Listing hcmts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hotel</th>
+      <th>User</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hcmts.each do |hcmt| %>
+      <tr>
+        <td><%= hcmt.hotel_id %></td>
+        <td><%= hcmt.user_id %></td>
+        <td><%= hcmt.content %></td>
+        <td><%= link_to 'Show', hcmt %></td>
+        <td><%= link_to 'Edit', edit_hcmt_path(hcmt) %></td>
+        <td><%= link_to 'Destroy', hcmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hcmt', new_hcmt_path %>

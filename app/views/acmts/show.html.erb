@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attraction:</strong>
+  <%= @acmt.attraction_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @acmt.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @acmt.content %>
+</p>
+
+<%= link_to 'Edit', edit_acmt_path(@acmt) %> |
+<%= link_to 'Back', acmts_path %>

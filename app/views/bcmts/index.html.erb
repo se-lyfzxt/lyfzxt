@@ -1,0 +1,31 @@
+<h1>Listing bcmts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blog</th>
+      <th>User</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bcmts.each do |bcmt| %>
+      <tr>
+        <td><%= bcmt.blog_id %></td>
+        <td><%= bcmt.user_id %></td>
+        <td><%= bcmt.content %></td>
+        <td><%= link_to 'Show', bcmt %></td>
+        <td><%= link_to 'Edit', edit_bcmt_path(bcmt) %></td>
+        <td><%= link_to 'Destroy', bcmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bcmt', new_bcmt_path %>

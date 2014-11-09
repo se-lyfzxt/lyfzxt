@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  planeno: MyString
+  src_id: 1
+  dst_id: 1
+  time: MyString
+  price: 1
+
+two:
+  planeno: MyString
+  src_id: 1
+  dst_id: 1
+  time: MyString
+  price: 1

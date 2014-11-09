@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trainno:</strong>
+  <%= @train.trainno %>
+</p>
+
+<p>
+  <strong>Src:</strong>
+  <%= @train.src_id %>
+</p>
+
+<p>
+  <strong>Dst:</strong>
+  <%= @train.dst_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @train.time %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @train.price %>
+</p>
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>

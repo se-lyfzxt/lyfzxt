@@ -1,0 +1,35 @@
+<h1>Listing planes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Planeno</th>
+      <th>Src</th>
+      <th>Dst</th>
+      <th>Time</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planes.each do |plane| %>
+      <tr>
+        <td><%= plane.planeno %></td>
+        <td><%= plane.src_id %></td>
+        <td><%= plane.dst_id %></td>
+        <td><%= plane.time %></td>
+        <td><%= plane.price %></td>
+        <td><%= link_to 'Show', plane %></td>
+        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
+        <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plane', new_plane_path %>
