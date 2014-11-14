@@ -13,7 +13,7 @@ class BlogsController < ApplicationController
   def show
     @bcmts = @blog.bcmts.paginate(page: params[:page])
     @bcmt = current_user.bcmts.build if signed_in?
-    @bcmt.blog_id = @blog.id
+    @bcmt.blog_id = @blog.id if signed_in?
   end
 
   # GET /blogs/new

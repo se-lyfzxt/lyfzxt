@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   # GET /routes

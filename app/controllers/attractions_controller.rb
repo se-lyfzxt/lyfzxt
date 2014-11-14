@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   # GET /attractions
@@ -14,7 +14,7 @@ class AttractionsController < ApplicationController
     @hotels = @attraction.hotels.paginate(page: params[:page])
     @acmts = @attraction.acmts.paginate(page: params[:page])
     @acmt = current_user.acmts.build if signed_in?
-    @acmt.attraction_id = @attraction.id
+    @acmt.attraction_id = @attraction.id if signed_in?
   end
 
   # GET /attractions/new

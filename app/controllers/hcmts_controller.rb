@@ -1,5 +1,6 @@
 class HcmtsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :signed_in_user, only: [:create]
+  before_action :admin_user, only: [:index, :show, :new, :edit, :update, :destroy]
   before_action :set_hcmt, only: [:show, :edit, :update, :destroy]
 
   # GET /hcmts

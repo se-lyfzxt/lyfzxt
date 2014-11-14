@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
   # GET /hotels
@@ -13,7 +13,7 @@ class HotelsController < ApplicationController
   def show
     @hcmts = @hotel.hcmts.paginate(page: params[:page])
     @hcmt = current_user.hcmt.build if signed_in?
-    @hcmt.hotel_id = @hotel.id
+    @hcmt.hotel_id = @hotel.id if signed_in?
   end
 
   # GET /hotels/new
