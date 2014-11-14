@@ -13,6 +13,8 @@ class AttractionsController < ApplicationController
   def show
     @hotels = @attraction.hotels.paginate(page: params[:page])
     @acmts = @attraction.acmts.paginate(page: params[:page])
+    @acmt = current_user.acmts.build if signed_in?
+    @acmt.attraction_id = @attraction.id
   end
 
   # GET /attractions/new

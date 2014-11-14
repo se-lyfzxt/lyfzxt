@@ -41,3 +41,7 @@
   </ol>
   <%= will_paginate @bcmts %>
 <% end %>
+
+<% if signed_in? %>
+  <%= render 'bcmts/form' %>
+<% end %>

@@ -12,6 +12,8 @@ class HotelsController < ApplicationController
   # GET /hotels/1.json
   def show
     @hcmts = @hotel.hcmts.paginate(page: params[:page])
+    @hcmt = current_user.hcmt.build if signed_in?
+    @hcmt.hotel_id = @hotel.id
   end
 
   # GET /hotels/new

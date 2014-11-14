@@ -12,6 +12,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @bcmts = @blog.bcmts.paginate(page: params[:page])
+    @bcmt = current_user.bcmts.build if signed_in?
+    @bcmt.blog_id = @blog.id
   end
 
   # GET /blogs/new
