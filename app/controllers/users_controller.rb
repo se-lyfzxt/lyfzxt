@@ -13,6 +13,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @blogs = @user.blogs.paginate(page: params[:page])
+    @bcmts = @user.bcmts.paginate(page: params[:page])
+    @acmts = @user.acmts.paginate(page: params[:page])
+    @hcmts = @user.hcmts.paginate(page: params[:page])
+    @requests = @user.requests.paginate(page: params[:page])
   end
 
   # GET /users/new

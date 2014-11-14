@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @bcmts = @blog.bcmts.paginate(page: params[:page])
   end
 
   # GET /blogs/new

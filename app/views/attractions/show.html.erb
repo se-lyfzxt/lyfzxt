@@ -17,3 +17,32 @@
 
 <%= link_to 'Edit', edit_attraction_path(@attraction) %> |
 <%= link_to 'Back', attractions_path %>
+
+<% if @attraction.hotels.any? %>
+  <h3>Hotels (<%= @attraction.hotels.count %>)</h3>
+  <ol class="hotels">
+    <% @hotels.each do |hotel| %>
+      <li>
+        <span class="hotelname"><%= hotel.hotelname %></span>
+        <span class="address"><%= hotel.address %></span>
+        <span class="tel"><%= hotel.tel %></span>
+        <span class="price"><%= hotel.price %></span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @acmts %>
+<% end %>
+
+<% if @attraction.acmts.any? %>
+  <h3>Attraction Comments (<%= @attraction.acmts.count %>)</h3>
+  <ol class="acmts">
+    <% @acmts.each do |acmt| %>
+      <li>
+        <span class="user_id"><%= acmt.user_id %></span>
+        <span class="content"><%= acmt.content %></span>
+        <span class="timestamp">Posted <%= time_ago_in_words(acmt.created_at) %> ago.</span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @acmts %>
+<% end %>

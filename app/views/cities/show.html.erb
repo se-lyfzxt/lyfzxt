@@ -12,3 +12,53 @@
 
 <%= link_to 'Edit', edit_city_path(@city) %> |
 <%= link_to 'Back', cities_path %>
+
+<% if @city.foods.any? %>
+  <h3>Foods (<%= @city.foods.count %>)</h3>
+  <ol class="foods">
+    <% @foods.each do |food| %>
+      <li>
+        <span class="foodname"><%= food.foodname %></span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @blogs %>
+<% end %>
+
+<% if @city.blogs.any? %>
+  <h3>Blogs (<%= @city.blogs.count %>)</h3>
+  <ol class="blogs">
+    <% @blogs.each do |blog| %>
+      <li>
+        <span class="title"><%= blog.title %></span>
+        <span class="user_id"><%= blog.user_id %></span>
+        <span class="timestamp">Posted <%= time_ago_in_words(blog.created_at) %> ago.</span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @blogs %>
+<% end %>
+
+<% if @city.routes.any? %>
+  <h3>Routes (<%= @city.routes.count %>)</h3>
+  <ol class="routes">
+    <% @routes.each do |route| %>
+      <li>
+        <span class="route"><%= route.route %></span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @routes %>
+<% end %>
+
+<% if @city.attractions.any? %>
+  <h3>Attractions (<%= @city.attractions.count %>)</h3>
+  <ol class="attractions">
+    <% @attractions.each do |attraction| %>
+      <li>
+        <span class="attracname"><%= attraction.attracname %></span>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @attractions %>
+<% end %>

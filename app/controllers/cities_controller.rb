@@ -10,6 +10,10 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
+    @foods = @city.foods.paginate(page: params[:page])
+    @blogs = @city.blogs.paginate(page: params[:page])
+    @routes = @city.routes.paginate(page: params[:page])
+    @attractions = @city.attractions.paginate(page: params[:page])
   end
 
   # GET /cities/new

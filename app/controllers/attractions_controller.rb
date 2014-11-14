@@ -10,6 +10,8 @@ class AttractionsController < ApplicationController
   # GET /attractions/1
   # GET /attractions/1.json
   def show
+    @hotels = @attraction.hotels.paginate(page: params[:page])
+    @acmts = @attraction.acmts.paginate(page: params[:page])
   end
 
   # GET /attractions/new

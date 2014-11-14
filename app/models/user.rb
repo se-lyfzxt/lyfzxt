@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  has_many :acmts, dependent: :destroy
+  has_many :bcmts, dependent: :destroy
+  has_many :blogs, dependent: :destroy
+  has_many :hcmts, dependent: :destroy
+  has_many :requests, dependent: :destroy
+  
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 

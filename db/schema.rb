@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109194052) do
+ActiveRecord::Schema.define(version: 20141113054844) do
 
   create_table "acmts", force: true do |t|
     t.integer  "attraction_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20141109194052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "acmts", ["user_id", "created_at"], name: "index_acmts_on_user_id_and_created_at"
 
   create_table "attractions", force: true do |t|
     t.string   "attracname"
@@ -37,6 +39,8 @@ ActiveRecord::Schema.define(version: 20141109194052) do
     t.datetime "updated_at"
   end
 
+  add_index "bcmts", ["user_id", "created_at"], name: "index_bcmts_on_user_id_and_created_at"
+
   create_table "blogs", force: true do |t|
     t.integer  "user_id"
     t.integer  "city_id"
@@ -46,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141109194052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "blogs", ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
 
   create_table "cities", force: true do |t|
     t.string   "cityname"
@@ -69,6 +75,8 @@ ActiveRecord::Schema.define(version: 20141109194052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "hcmts", ["user_id", "created_at"], name: "index_hcmts_on_user_id_and_created_at"
 
   create_table "hotels", force: true do |t|
     t.string   "hotelname"
@@ -99,6 +107,8 @@ ActiveRecord::Schema.define(version: 20141109194052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "requests", ["user_id", "created_at"], name: "index_requests_on_user_id_and_created_at"
 
   create_table "routes", force: true do |t|
     t.integer  "city_id"
