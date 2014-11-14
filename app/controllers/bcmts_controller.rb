@@ -1,4 +1,5 @@
 class BcmtsController < ApplicationController
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_bcmt, only: [:show, :edit, :update, :destroy]
 
   # GET /bcmts

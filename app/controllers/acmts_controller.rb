@@ -1,4 +1,5 @@
 class AcmtsController < ApplicationController
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_acmt, only: [:show, :edit, :update, :destroy]
 
   # GET /acmts
