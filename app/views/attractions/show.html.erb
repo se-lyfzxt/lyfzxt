@@ -7,7 +7,7 @@
 
 <p>
   <strong>City:</strong>
-  <%= @attraction.city_id %>
+  <%= @attraction.city.cityname %>
 </p>
 
 <p>
@@ -39,7 +39,7 @@
   <ol class="acmts">
     <% @acmts.each do |acmt| %>
       <li>
-        <span class="user_id"><%= acmt.user_id %></span>
+        <span class="user_id"><%= acmt.user.nickname %></span>
         <span class="content"><%= acmt.content %></span>
         <span class="timestamp">Posted <%= time_ago_in_words(acmt.created_at) %> ago.</span>
       </li>

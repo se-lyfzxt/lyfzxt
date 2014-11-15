@@ -16,7 +16,7 @@
     <% @foods.each do |food| %>
       <tr>
         <td><%= food.foodname %></td>
-        <td><%= food.city_id %></td>
+        <td><%= food.city.cityname %></td>
         <td><%= food.image %></td>
         <td><%= link_to 'Show', food %></td>
         <% if signed_in? && current_user.admin? %>

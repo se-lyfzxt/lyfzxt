@@ -15,8 +15,8 @@
   <tbody>
     <% @hcmts.each do |hcmt| %>
       <tr>
-        <td><%= hcmt.hotel_id %></td>
-        <td><%= hcmt.user_id %></td>
+        <td><%= hcmt.hotel.hotelname %></td>
+        <td><%= hcmt.user.nickname %></td>
         <td><%= hcmt.content %></td>
         <td><%= link_to 'Show', hcmt %></td>
         <td><%= link_to 'Edit', edit_hcmt_path(hcmt) %></td>

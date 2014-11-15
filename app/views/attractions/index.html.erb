@@ -16,7 +16,7 @@
     <% @attractions.each do |attraction| %>
       <tr>
         <td><%= attraction.attracname %></td>
-        <td><%= attraction.city_id %></td>
+        <td><%= attraction.city.cityname %></td>
         <td><%= attraction.image %></td>
         <td><%= link_to 'Show', attraction %></td>
         <% if signed_in? && current_user.admin? %>

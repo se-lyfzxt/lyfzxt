@@ -15,8 +15,8 @@
   <tbody>
     <% @acmts.each do |acmt| %>
       <tr>
-        <td><%= acmt.attraction_id %></td>
-        <td><%= acmt.user_id %></td>
+        <td><%= acmt.attraction.attracname %></td>
+        <td><%= acmt.user.nickname %></td>
         <td><%= acmt.content %></td>
         <td><%= link_to 'Show', acmt %></td>
         <td><%= link_to 'Edit', edit_acmt_path(acmt) %></td>

@@ -32,7 +32,7 @@
     <% @blogs.each do |blog| %>
       <li>
         <span class="title"><%= blog.title %></span>
-        <span class="user_id"><%= blog.user_id %></span>
+        <span class="user_id"><%= blog.user.nickname %></span>
         <span class="timestamp">Posted <%= time_ago_in_words(blog.created_at) %> ago.</span>
       </li>
     <% end %>

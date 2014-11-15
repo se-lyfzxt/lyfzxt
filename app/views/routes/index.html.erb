@@ -14,7 +14,7 @@
   <tbody>
     <% @routes.each do |route| %>
       <tr>
-        <td><%= route.city_id %></td>
+        <td><%= route.city.cityname %></td>
         <td><%= route.route %></td>
         <td><%= link_to 'Show', route %></td>
         <% if signed_in? && current_user.admin? %>

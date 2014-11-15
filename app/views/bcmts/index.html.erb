@@ -15,8 +15,8 @@
   <tbody>
     <% @bcmts.each do |bcmt| %>
       <tr>
-        <td><%= bcmt.blog_id %></td>
-        <td><%= bcmt.user_id %></td>
+        <td><%= bcmt.blog.title %></td>
+        <td><%= bcmt.user.nickname %></td>
         <td><%= bcmt.content %></td>
         <td><%= link_to 'Show', bcmt %></td>
         <td><%= link_to 'Edit', edit_bcmt_path(bcmt) %></td>
