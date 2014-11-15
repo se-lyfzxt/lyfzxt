@@ -18,8 +18,8 @@
     <% @trains.each do |train| %>
       <tr>
         <td><%= train.trainno %></td>
-        <td><%= train.src_id %></td>
-        <td><%= train.dst_id %></td>
+        <td><%= train.src.cityname %></td>
+        <td><%= train.dst.cityname %></td>
         <td><%= train.time %></td>
         <td><%= train.price %></td>
         <td><%= link_to 'Show', train %></td>

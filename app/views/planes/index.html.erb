@@ -18,8 +18,8 @@
     <% @planes.each do |plane| %>
       <tr>
         <td><%= plane.planeno %></td>
-        <td><%= plane.src_id %></td>
-        <td><%= plane.dst_id %></td>
+        <td><%= plane.src.cityname %></td>
+        <td><%= plane.dst.cityname %></td>
         <td><%= plane.time %></td>
         <td><%= plane.price %></td>
         <td><%= link_to 'Show', plane %></td>
