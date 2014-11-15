@@ -12,8 +12,9 @@
   <% end %>
   <% if signed_in? && current_user.admin? %>
     <div class="field">
+      <% attractions_array = Attraction.all.map { |attraction| [attraction.attracname, attraction.id] } %>
       <%= f.label :attraction_id %><br>
-      <%= f.number_field :attraction_id %>
+      <%= f.select :attraction_id, options_for_select(attractions_array) %>
     </div>
     <div class="field">
       <%= f.label :user_id %><br>

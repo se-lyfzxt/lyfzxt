@@ -15,13 +15,14 @@
     <%= f.label :trainno %><br>
     <%= f.text_field :trainno %>
   </div>
+  <% cities_array = City.all.map { |city| [city.cityname, city.id] } %>
   <div class="field">
     <%= f.label :src_id %><br>
-    <%= f.number_field :src_id %>
+    <%= f.select :src_id, options_for_select(cities_array) %>
   </div>
   <div class="field">
     <%= f.label :dst_id %><br>
-    <%= f.number_field :dst_id %>
+    <%= f.select :dst_id, options_for_select(cities_array) %>
   </div>
   <div class="field">
     <%= f.label :time %><br>

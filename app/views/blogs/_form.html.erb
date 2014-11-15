@@ -17,8 +17,9 @@
     </div>
   <% end %>
   <div class="field">
+    <% cities_array = City.all.map { |city| [city.cityname, city.id] } %>
     <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
+    <%= f.select :city_id, options_for_select(cities_array) %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
