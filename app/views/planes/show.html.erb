@@ -24,6 +24,7 @@
   <strong>Price:</strong>
   <%= @plane.price %>
 </p>
-
-<%= link_to 'Edit', edit_plane_path(@plane) %> |
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_plane_path(@plane) %> |
+<% end %>
 <%= link_to 'Back', planes_path %>

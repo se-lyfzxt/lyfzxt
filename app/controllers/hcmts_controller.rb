@@ -30,10 +30,10 @@ class HcmtsController < ApplicationController
 
     respond_to do |format|
       if @hcmt.save
-        format.html { redirect_to @hcmt, notice: 'Hcmt was successfully created.' }
+        format.html { redirect_back_or @hcmt}
         format.json { render action: 'show', status: :created, location: @hcmt }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_back_or 'new' }
         format.json { render json: @hcmt.errors, status: :unprocessable_entity }
       end
     end

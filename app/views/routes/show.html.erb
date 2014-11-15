@@ -9,6 +9,7 @@
   <strong>Route:</strong>
   <%= @route.route %>
 </p>
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_route_path(@route) %> |
+<% end %>
 <%= link_to 'Back', routes_path %>

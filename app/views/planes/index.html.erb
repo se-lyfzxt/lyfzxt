@@ -23,13 +23,16 @@
         <td><%= plane.time %></td>
         <td><%= plane.price %></td>
         <td><%= link_to 'Show', plane %></td>
-        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
-        <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
+          <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Plane', new_plane_path %>
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'New Plane', new_plane_path %>
+<% end %>

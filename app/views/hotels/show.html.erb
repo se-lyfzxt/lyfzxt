@@ -24,8 +24,9 @@
   <strong>Price:</strong>
   <%= @hotel.price %>
 </p>
-
-<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<% end %>
 <%= link_to 'Back', hotels_path %>
 
 <% if @hotel.hcmts.any? %>

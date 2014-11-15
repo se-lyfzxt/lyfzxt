@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  after_action :store_location, only: [:show]
 
   # GET /blogs
   # GET /blogs.json
@@ -74,5 +76,11 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:user_id, :city_id, :title, :content, :image)
+    end
+
+    def correct_user
+      @blog = current_user.blogs.find(params[:id])
+    rescue
+      redirect_to root_url
     end
 end

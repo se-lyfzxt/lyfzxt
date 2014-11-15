@@ -17,13 +17,16 @@
         <td><%= route.city_id %></td>
         <td><%= route.route %></td>
         <td><%= link_to 'Show', route %></td>
-        <td><%= link_to 'Edit', edit_route_path(route) %></td>
-        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_route_path(route) %></td>
+          <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Route', new_route_path %>
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'New Route', new_route_path %>
+<% end %>

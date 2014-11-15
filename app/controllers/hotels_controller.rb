@@ -1,6 +1,7 @@
 class HotelsController < ApplicationController
   before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
+  after_action :store_location, only: [:show]
 
   # GET /hotels
   # GET /hotels.json
@@ -32,10 +33,10 @@ class HotelsController < ApplicationController
 
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully created.' }
+        format.html { redirect_back_or @hotel}
         format.json { render action: 'show', status: :created, location: @hotel }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_back_or 'new' }
         format.json { render json: @hotel.errors, status: :unprocessable_entity }
       end
     end

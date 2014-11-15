@@ -24,6 +24,7 @@
   <strong>Note:</strong>
   <%= @request.note %>
 </p>
-
-<%= link_to 'Edit', edit_request_path(@request) %> |
+<% if signed_in? && current_user.admin? || current_user?(@request.user_id) %>
+  <%= link_to 'Edit', edit_request_path(@request) %> |
+<% end %>
 <%= link_to 'Back', requests_path %>

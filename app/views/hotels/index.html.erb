@@ -23,13 +23,16 @@
         <td><%= hotel.tel %></td>
         <td><%= hotel.price %></td>
         <td><%= link_to 'Show', hotel %></td>
-        <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
-        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
+          <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Hotel', new_hotel_path %>
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'New Hotel', new_hotel_path %>
+<% end %>

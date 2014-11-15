@@ -30,10 +30,10 @@ class BcmtsController < ApplicationController
 
     respond_to do |format|
       if @bcmt.save
-        format.html { redirect_to @bcmt, notice: 'Bcmt was successfully created.' }
+        format.html { redirect_back_or @bcmt }
         format.json { render action: 'show', status: :created, location: @bcmt }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_back_or 'new' }
         format.json { render json: @bcmt.errors, status: :unprocessable_entity }
       end
     end

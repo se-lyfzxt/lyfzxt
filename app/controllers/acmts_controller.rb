@@ -30,10 +30,10 @@ class AcmtsController < ApplicationController
 
     respond_to do |format|
       if @acmt.save
-        format.html { redirect_to @acmt, notice: 'Acmt was successfully created.' }
+        format.html { redirect_back_or @acmt }
         format.json { render action: 'show', status: :created, location: @acmt }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_back_or 'new' }
         format.json { render json: @acmt.errors, status: :unprocessable_entity }
       end
     end

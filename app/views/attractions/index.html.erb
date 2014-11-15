@@ -19,13 +19,16 @@
         <td><%= attraction.city_id %></td>
         <td><%= attraction.image %></td>
         <td><%= link_to 'Show', attraction %></td>
-        <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
-        <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+          <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Attraction', new_attraction_path %>
+<% if signed_in? && current_user.admin? %>
+  <%= link_to 'New Attraction', new_attraction_path %>
+<% end %>

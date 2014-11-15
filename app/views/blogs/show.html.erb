@@ -24,8 +24,9 @@
   <strong>Image:</strong>
   <%= @blog.image %>
 </p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<% if signed_in? && current_user.admin? || current_user?(@blog.user_id) %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %> |
+<% end %>
 <%= link_to 'Back', blogs_path %>
 
 <% if @blog.bcmts.any? %>

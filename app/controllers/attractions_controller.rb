@@ -1,6 +1,7 @@
 class AttractionsController < ApplicationController
   before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
+  after_action :store_location, only: [:show]
 
   # GET /attractions
   # GET /attractions.json

@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
   # GET /requests
@@ -71,5 +72,11 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.require(:request).permit(:user_id, :city_id, :time, :number, :note)
+    end
+
+    def correct_user
+      @request = current_user.requests.find(params[:id])
+    rescue
+      redirect_to root_url
     end
 end

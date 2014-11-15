@@ -31,7 +31,9 @@ module SessionsHelper
   end
 
   def admin_user
-    redirect_to(root_path) unless signed_in? && current_user.admin?
+    unless signed_in? && current_user.admin?
+      redirect_to root_path, notice: "Permission Denied"
+    end 
   end
 
   def sign_out
