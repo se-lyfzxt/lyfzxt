@@ -62,6 +62,10 @@ class PlanesController < ApplicationController
     end
   end
 
+  def search
+    @planes = Plane.where("src_id = ? AND dst_id = ?", params[:src], params[:dst])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plane

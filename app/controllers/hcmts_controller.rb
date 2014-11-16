@@ -27,10 +27,12 @@ class HcmtsController < ApplicationController
   # POST /hcmts.json
   def create
     @hcmt = Hcmt.new(hcmt_params)
-
+    if !@hcmt.user_id
+      @hcmt.user_id = current_user.id
+    end
     respond_to do |format|
       if @hcmt.save
-        format.html { redirect_back_or @hcmt}
+        format.html { redirect_to :back, notice: 'Bcmt was successfully created.' }
         format.json { render action: 'show', status: :created, location: @hcmt }
       else
         format.html { redirect_back_or 'new' }

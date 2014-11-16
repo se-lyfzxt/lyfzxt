@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
   before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :search_result, only: [:show]
+  before_action :set_request, only: [:edit, :update, :destroy]
 
   # GET /requests
   # GET /requests.json
@@ -27,7 +28,9 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
-
+    if !@request.user_id
+      @request.user_id = current_user.id
+    end
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
@@ -67,6 +70,11 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find(params[:id])
+    end
+
+    def search_result
+      @request = Request.find(params[:id])
+      @requests = Request.where("city_id = ? AND time = ?", @request.city_id, @request.time)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,6 +1,11 @@
 Traveler::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'static_pages#home'
+
+  match '/trains/search', to: 'trains#search',  via: 'get'
+  match '/planes/search', to: 'planes#search',  via: 'get'
+  match '/requests/search', to: 'requests#search',  via: 'get'
+
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

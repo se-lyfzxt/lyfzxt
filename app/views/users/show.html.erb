@@ -97,7 +97,7 @@
         <span class="time"><%= request.time %></span>
         <span class="number"><%= request.number %></span>
         <span class="note"><%= request.note %></span>
-        <span class="timestamp">Posted <%= time_ago_in_words(blog.created_at) %> ago.</span>
+        <span class="timestamp">Posted <%= time_ago_in_words(request.created_at) %> ago.</span>
       </li>
     <% end %>
   </ol>

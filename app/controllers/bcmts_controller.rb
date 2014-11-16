@@ -2,7 +2,6 @@ class BcmtsController < ApplicationController
   before_action :signed_in_user, only: [:create]
   before_action :admin_user, only: [:index, :show, :new, :edit, :update, :destroy]
   before_action :set_bcmt, only: [:show, :edit, :update, :destroy]
-
   # GET /bcmts
   # GET /bcmts.json
   def index
@@ -27,10 +26,12 @@ class BcmtsController < ApplicationController
   # POST /bcmts.json
   def create
     @bcmt = Bcmt.new(bcmt_params)
-
+    if !@bcmt.user_id
+      @bcmt.user_id = current_user.id
+    end
     respond_to do |format|
       if @bcmt.save
-        format.html { redirect_back_or @bcmt }
+        format.html { redirect_to :back, notice: 'Bcmt was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bcmt }
       else
         format.html { redirect_back_or 'new' }

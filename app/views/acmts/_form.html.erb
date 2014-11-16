@@ -20,6 +20,8 @@
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id %>
     </div>
+  <% else %>
+    <%= f.hidden_field :attraction_id, :readonly=>true %>
   <% end %>
   <div class="field">
     <%= f.label :content %><br>

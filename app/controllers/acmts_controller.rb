@@ -27,10 +27,12 @@ class AcmtsController < ApplicationController
   # POST /acmts.json
   def create
     @acmt = Acmt.new(acmt_params)
-
+    if !@acmt.user_id
+      @acmt.user_id = current_user.id
+    end
     respond_to do |format|
       if @acmt.save
-        format.html { redirect_back_or @acmt }
+        format.html { redirect_to :back, notice: 'Bcmt was successfully created.' }
         format.json { render action: 'show', status: :created, location: @acmt }
       else
         format.html { redirect_back_or 'new' }

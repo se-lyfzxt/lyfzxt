@@ -1,20 +1,5 @@
 <h1>Listing planes</h1>
 
-<%= form_tag("/planes/search", method: "get") do %>
-  <% cities_array = City.all.map { |city| [city.cityname, city.id] } %>
-  <div class="field">
-    <%= label_tag :src, "src"%><br>
-    <%= select_tag :src, options_for_select(cities_array) %>
-  </div>
-  <div class="field">
-    <%= label_tag :dst, "dst"%><br>
-    <%= select_tag :dst, options_for_select(cities_array) %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "search"%>
-  </div>
-<% end %>
-
 <table>
   <thead>
     <tr>

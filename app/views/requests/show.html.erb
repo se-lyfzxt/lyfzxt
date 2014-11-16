@@ -24,6 +24,41 @@
   <strong>Note:</strong>
   <%= @request.note %>
 </p>
+
+<h1>Listing requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>City</th>
+      <th>Time</th>
+      <th>Number</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.user.nickname %></td>
+        <td><%= request.city.cityname %></td>
+        <td><%= request.time %></td>
+        <td><%= request.number %></td>
+        <td><%= request.note %></td>
+        <td><%= link_to 'Show', request %></td>
+        <% if signed_in? && current_user.admin? || current_user?(request.user_id) %>
+          <td><%= link_to 'Edit', edit_request_path(request) %></td>
+          <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <% if signed_in? && current_user.admin? || current_user?(@request.user_id) %>
   <%= link_to 'Edit', edit_request_path(@request) %> |
 <% end %>

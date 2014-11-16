@@ -2,7 +2,6 @@ class BlogsController < ApplicationController
   before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  after_action :store_location, only: [:show]
 
   # GET /blogs
   # GET /blogs.json
@@ -31,7 +30,9 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-
+    if !@blog.user_id
+      @blog.user_id = current_user.id
+    end
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_SEX_REGEX = /\A[M|F]\z/
+  
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :nickname, presence: true, length: {maximum: 50}, uniqueness: { case_sensitive: false }
   validates :sex, presence: true, format: {with: VALID_SEX_REGEX}
