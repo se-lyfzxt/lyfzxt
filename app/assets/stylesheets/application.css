@@ -7905,7 +7905,7 @@ THEME STYLES
 -------------------------------------------------------------- */
 body {
   -webkit-font-smoothing: antialiased;
-  background: url(images/backgrounds/wild_oliva_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light.png' %>);
 }
 h1,
 h2,
@@ -7970,7 +7970,7 @@ a:focus {
 /* =Header
 -------------------------------------------------------------- */
 header {
-  background: url(images/backgrounds/wild_oliva_light_head.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light_head.png' %>);
   border-bottom: solid 1px #cccccc;
 }
 header .container {
@@ -8056,7 +8056,7 @@ header .container {
   margin-top: 22px;
   margin-right: 0;
   margin-left: 0;
-  background: url(images/backgrounds/wild_oliva_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light.png' %>);
 }
 .navbar .btn-navbar span.nb_left {
   padding: 5px;
@@ -8073,18 +8073,18 @@ header .container {
 }
 .in .nav li a {
   margin: 0 0 6px 0px;
-  background: url(images/backgrounds/wild_oliva_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light.png' %>);
 }
 .in .nav li a:hover,
 .in .nav li a:active {
-  background: url(images/backgrounds/wild_oliva_blue_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_blue_light.png' %>);
   color: #ffffff;
   text-shadow: 0px 0px 0 transparent;
   border-bottom: solid 0px #0088cc;
 }
 .in .nav li.active a,
 .in .nav li.active a:hover {
-  background: url(images/backgrounds/wild_oliva_dark.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_dark.png' %>);
   color: #ffffff;
   text-shadow: 0px 0px 0 transparent;
   border-bottom: solid 0px #0088cc;
@@ -8109,7 +8109,7 @@ header .container {
   display: block;
   float: left;
   margin: 0 3px;
-  background: url(images/backgrounds/wild_oliva_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light.png' %>);
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
@@ -8126,7 +8126,7 @@ header .container {
 #social_media_wrapper a:active {
   text-decoration: none;
   color: #ffffff;
-  background: url(images/backgrounds/wild_oliva_blue_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_blue_light.png' %>);
 }
 #sign {
   position: absolute;
@@ -8318,7 +8318,7 @@ header .container {
 /* =Main, Homepage
 -------------------------------------------------------------- */
 #main {
-  background: url(images/backgrounds/wild_oliva_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light.png' %>);
 }
 section.call_to_action {
   text-align: center;
@@ -8435,7 +8435,7 @@ figure {
   text-align: center;
   background-color: #000000;
   background-color: #222222;
-  background: url(images/backgrounds/wild_oliva_light_head.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light_head.png' %>);
   color: #cccccc;
   padding: 40px;
   -webkit-transition: all 500ms linear;
@@ -8679,7 +8679,7 @@ ul#portfolio_filters li .active a:hover {
   border-radius: 3px;
 }
 .portfolio_strict .portfolio_item:hover {
-  background: url(images/backgrounds/wild_oliva_blue_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_blue_light.png' %>);
 }
 .portfolio_strict .portfolio_item:hover a {
   color: #ffffff;
@@ -8718,7 +8718,7 @@ ul#portfolio_filters li .active a:hover {
   border-radius: 3px;
 }
 .portfolio_strict .portfolio_item .portfolio_photo a i {
-  background: url(images/backgrounds/wild_oliva_blue_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_blue_light.png' %>);
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
@@ -8809,7 +8809,7 @@ ul#portfolio_filters li .active a:hover {
   line-height: 22px;
 }
 .portfolio_masonry .portfolio_item a .overlay i {
-  background: url(images/backgrounds/wild_oliva_blue_light.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_blue_light.png' %>);
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
@@ -8950,7 +8950,7 @@ article.post .post_content .btn {
 .signin {
 	text-align: center;
 	background-color: #ffffff;
-	background: url(images/backgrounds/wild_oliva_light_head.png);
+	url(<%= asset_path 'backgrounds/wild_oliva_light_head.png' %>);
 	padding: 40px;
 	border: solid 1px #e7e7e7;
 	margin-bottom: 24px;
@@ -9048,7 +9048,7 @@ p.sign_title {
 .signup {
   text-align: center;
   background-color: #ffffff;
-  background: url(images/backgrounds/wild_oliva_light_head.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_light_head.png' %>);
   padding: 40px;
   border: solid 1px #e7e7e7;
   margin-bottom: 24px;
@@ -9081,7 +9081,7 @@ footer {
   color: #ffffff;
   border-top: solid 2px #ffffff;
   background-color: #222222;
-  background: url(images/backgrounds/wild_oliva_dark.png);
+  url(<%= asset_path 'backgrounds/wild_oliva_dark.png' %>);
 }
 footer a:hover,
 footer a:active {
